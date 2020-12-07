@@ -1,7 +1,7 @@
 # inzynier
 
 ## Page list: 
-**index.php** - strona powitalna, 2 kafelki (test, interaktywna opowieść)<br>
+**index.php** - strona powitalna, 2 kafelki (test, interaktywna opowieść), link do panelu<br>
 **kwestionariusz.php**<br>
 **opowiesc.php**<br>
 **login.php** - formularz dla admina<br>

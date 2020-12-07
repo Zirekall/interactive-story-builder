@@ -1,0 +1,22 @@
+body{
+    font-family: "Dosis";
+}
+
+nav{
+    background-color: rgb(65, 65, 65);
+
+}
+nav a{
+    color: white;
+}
+header{
+    background-color: sandybrown;
+}
+
+#login-panel{
+    border-top: none;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    min-height: 300px;
+    text-align: center;
+}
