@@ -13,10 +13,6 @@ header{
     background-color: sandybrown;
 }
 
-#login-panel{
-    border-top: none;
-    border-bottom-right-radius: 20px;
-    border-bottom-left-radius: 20px;
-    min-height: 300px;
+.center{
     text-align: center;
-}
+} 

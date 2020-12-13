@@ -17,7 +17,7 @@ include "functions/connect.php";
 <body>
     <nav>
         <h1>Internetowy kwestionariusz osobowości</h1>
-        <div id="tak"><a href="admin.html">Admin Panel</a></div>
+        <div id="tak"><a href="admin/">Admin Panel</a></div>
 </nav>
     <div class="container-fluid">
         <div id="two-side">

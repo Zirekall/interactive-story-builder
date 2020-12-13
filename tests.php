@@ -6,8 +6,8 @@ include "header.php";
 
 <body>
     <div class="container">
-        <div id=login-panel>
-            <div id="login-form">
+        <div id="tests">
+            <div class="text-center">
                 <h3 class="mt-4">Wybierz formularz, który cię interesuje.</h3>
 
                 <table class="table mt-5">
@@ -29,6 +29,5 @@ include "header.php";
             </div>
         </div>
     </div>
-    <script src="vendor/jquery/jquery.slim.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
 </body>

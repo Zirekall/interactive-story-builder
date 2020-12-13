@@ -1,14 +1,15 @@
 <?php 
-include "functions/connect.php";
+include "../functions/connect.php";
 ?>
 <html>
 
 <head>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="https://kit.fontawesome.com/fef7379b87.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <?php
     echo "<title>".$title."</title>";
     ?>
@@ -18,16 +19,16 @@ include "functions/connect.php";
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
             <div class="container">
-                <a class="navbar-brand" href="index.php">Internetowy kwestionariusz osobowości</a>
+                <a class="navbar-brand" href="../index.php">Internetowy kwestionariusz osobowości</a>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="tests.php">Kwestionariusze</a>
+                            <a class="nav-link" href="../tests.php">Kwestionariusze</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="enter-code.php">Opowieść</a>
+                            <a class="nav-link" href="../enter-code.php">Opowieść</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="admin/">Admin Panel</a>
+                            <a class="nav-link" href="../functions/logout.php">Wyloguj</a>
                         </li>
                     </ul>
                 </div>
