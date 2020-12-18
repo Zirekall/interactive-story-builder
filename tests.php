@@ -13,17 +13,29 @@ include "header.php";
                 <table class="table mt-5">
                 <thead>
                     <tr>
-                    <th scope="col">Nazwa</th>
+                    <th scope="col" id="col-nazwa">Nazwa</th>
                     <th scope="col">Data utworzenia</th>
                     <th scope="col">Ilość pytań</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                    <th scope="row"><a href="google.pl">Siema SiemaSiemaSiemaSiemaSiemaSiema SiemaSiema SiemaSiema SiemaSiemaSiemaSiema</a></th>
-                    <td>01-01-2020</td>
-                    <td>42</td>
-                    </tr>
+                    <?php
+                        $sql = "SELECT * FROM formularze WHERE listed = 1";
+                        $wyniki = $conn->query($sql);
+
+                        while($wiersz = $wyniki->fetch_assoc()){
+                        $formID=$wiersz['ID_formularza'];
+                        $pytania=$conn->query("SELECT COUNT(ID_pytania) AS total FROM pytania WHERE ID_formularza = '$formID'");
+                        $policzone=$pytania->fetch_assoc();
+                        echo '
+                        <tr>
+                        <th scope="row"><a href="fill-up-form.php?id='.$formID.'">'.$wiersz['nazwa_formularza'].'</a></th>
+                        <td>'.$wiersz['data_utworzenia'].'</td>
+                        <td>'.$policzone['total'].'</td>
+                        </tr>';
+                        }
+                        $conn->close();
+                    ?>
                 </tbody>
                 </table>
             </div>

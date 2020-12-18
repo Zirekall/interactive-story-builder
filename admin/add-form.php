@@ -33,6 +33,11 @@
                     </div>
 
                     <div id="newRow"></div>
+                    <label for="listed">Pokazać na liście testów?</label>
+                    <select name="listed">
+                        <option value="1">Tak</option>
+                        <option value="0">Nie</option>
+                    </select>
                     <button id="addRow" type="button" class="btn btn-info float-left ml-3">Dodaj Pytanie</button>
                     <input type="submit" value="Dodaj formularz" class="btn btn-primary float-right mr-3">
                 </div>

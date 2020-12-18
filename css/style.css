@@ -16,3 +16,11 @@ header{
 .center{
     text-align: center;
 } 
+#admin-table form{
+    margin:0;
+    padding:0;
+}
+
+#col-nazwa{
+    max-width: 700px;
+}

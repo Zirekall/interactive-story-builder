@@ -28,13 +28,13 @@
             $wynik->free_result();
             header('Location: ../admin/');
         } else {
-            $_SESSION['err'] = '<p>Nieprawidłowy login lub hasło.1</p>';
+            $_SESSION['err'] = '<p>Nieprawidłowy login lub hasło</p>';
             header('Location: ../login-panel.php');
         }
     }else {
-        $_SESSION['err'] = '<p>Nieprawidłowy login lub hasło.2</p>';
+        $_SESSION['err'] = '<p>Nieprawidłowy login lub hasło</p>';
         header('Location: ../login-panel.php');
     }
-    $polaczenie->close();
+    $conn->close();
 
 ?>
