@@ -38,8 +38,10 @@ include "header.php";
                     ?>
                 </tbody>
                 </table>
+                
             </div>
         </div>
     </div>
 
 </body>
+<?php include "footer.php"?>

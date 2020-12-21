@@ -22,18 +22,40 @@ if ($x==0) {
 <body>
     <div class="container">
         <div id="form">
-            <h2 class="mt-4 center"><?php echo($form['nazwa_formularza'])?></h2>
-
-
+            <h2 class="mt-4 mb-4 center"><?php echo($form['nazwa_formularza'])?></h2>
+            <form action="send-form.php" method="POST">
+            <input type="hidden" name="ID" value="<?php echo $ID?>">
             <?php
             $pytania=@$conn->query("SELECT tresc FROM pytania WHERE ID_formularza = '$ID'");
+            $i=0;
             while($wiersz = $pytania->fetch_assoc()){
                 $tresc=$wiersz['tresc'];
+                
+                echo "<div class='question p-4'>";
                 echo $tresc;
-            }
+                echo "</div>";
+                echo "<table class='table form-table'>";
+                echo "<tbody>";
+                echo "<tr>";
+                echo "<th>Nie zgadzam się</th>";
+                echo "<th><input type='radio' name='answer[". ++$i ."]' value='1' class='form-check-input' required><label for='answer[]'>1</label class='form-check-label'></th>";
+                echo "<th><input type='radio' name='answer[". $i ."]' value='2' class='form-check-input'><label for='answer[]'>2</label class='form-check-label'></th>";
+                echo "<th><input type='radio' name='answer[". $i ."]' value='3' class='form-check-input'><label for='answer[]'>3</label class='form-check-label'></th>";
+                echo "<th><input type='radio' name='answer[". $i ."]' value='4' class='form-check-input'><label for='answer[]'>4</label class='form-check-label'></th>";
+                echo "<th><input type='radio' name='answer[". $i ."]' value='5' class='form-check-input'><label for='answer[]'>5</label class='form-check-label'></th>";
+                echo "<th style='max-width:100px'>Zgadzam się</th>";
+                echo "</tr>";
+                echo "<tbody>";
+                echo "</table>";
+                
+                
+            };
+            $conn->close();
             ?>
-
+            <input type='submit' value='wyslij'>
+            </form>
 
         </div>
     </div>
 </body>
+<?php include "footer.php"?>

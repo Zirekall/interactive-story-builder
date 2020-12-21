@@ -7,8 +7,6 @@ include "functions/connect.php";
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/landingpage.css">
 
     <title>Internetowy kwestionariusz osobowości</title>

@@ -40,13 +40,13 @@
             $policzone=$pytania->fetch_assoc();
             echo '
             <tr>
-            <th scope="row"><a href="edit.php">'.$wiersz['nazwa_formularza'].'</a></th>
+            <th scope="row"><a href="edit-form.php?id='.$formID.'">'.$wiersz['nazwa_formularza'].'</a></th>
             <td>'.$wiersz['data_utworzenia'].'</td>
             <td>'.$policzone['total'].'</td>
             <td><form action="results.php" method="post">
-            <input type="text" name="ID" value="'.$wiersz['ID_formularza'].'" style="display:none"><input type="submit" name="results" value="Wyniki" class="btn btn-primary"></td></form>
+            <input type="hidden" name="ID" value="'.$wiersz['ID_formularza'].'"><input type="submit" name="results" value="Wyniki" class="btn btn-primary"></td></form>
             <td><form action="../functions/delete-form.php" method="post">
-            <input type="text" name="ID" value="'.$wiersz['ID_formularza'].'" style="display:none"><input type="submit" name="results" value="Usuń" class="btn btn-danger"></td></form>
+            <input type="hidden" name="ID" value="'.$wiersz['ID_formularza'].'"><input type="submit" name="results" value="Usuń" class="btn btn-danger"></td></form>
             </tr>';
             }
             $conn->close();
@@ -63,3 +63,4 @@
 
     
 </body>
+<?php include "../footer.php"?>

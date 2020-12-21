@@ -8,4 +8,5 @@
 
     $conn->close();
     header('Location: ../admin/index.php');
+    exit();
 ?>
