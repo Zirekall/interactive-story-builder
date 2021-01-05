@@ -15,33 +15,18 @@
     if (!isset($_SESSION["$formID"])) {
         $_SESSION["$formID"]=$resultID;
     
-    $result=0;
-    $max=0;
-    foreach ($_POST['answer'] as $key => $points) {
-        $result=$result+$points;
-        $max=$max+5;
-    }
-    
-    $percent=$result/$max*100;
+        $result=0;
+        $max=0;
+        foreach ($_POST['answer'] as $key => $points) {
+            $result=$result+$points;
+        }
 
-    if ($percent <= 25) {
-        $label = "Do 25%";
-    }
+        foreach ($_POST['answer'] as $key => $odp) {
+            $sql=$conn->query("INSERT INTO odpowiedzi VALUES (NULL,'$resultID','$odp');");
+        }
 
-    if ($percent > 25 && $percent <= 50) {
-        $label = "Od 25% do 50%";
-    } 
-
-    if ($percent > 50 && $percent <= 75) {
-        $label = "Od 50% do 75%";
-    }
-
-    if ($percent > 75) {
-        $label = "Ponad 75%";
-    }
-    
-    $sql=$conn->query("INSERT INTO form_wyniki VALUES ('$resultID','$result','$label',CURRENT_TIMESTAMP,'$formID');");
-    $conn->close();
+        $sql=$conn->query("INSERT INTO form_wyniki VALUES ('$resultID','$result',CURRENT_TIMESTAMP,'$formID');");
+        $conn->close();
     }
 
 ?>
@@ -58,5 +43,5 @@
         </div>
     </div>
 
-</body>
+
 <?php include "footer.php"?>

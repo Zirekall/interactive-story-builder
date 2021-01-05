@@ -1,7 +1,7 @@
 <?php
 include "functions/connect.php";
 ?>
-<html>
+<html lang="">
 
 <head>
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -26,7 +26,7 @@ include "functions/connect.php";
                         <p>Rozwiąż test osobowości</p>
                     </div>
                     <div class="helper">
-                        <img src="img/people.png">
+                        <img src="img/people.png" alt="kwestionariusze osobowości">
                     </div>
                 </a>
             </div>
@@ -38,12 +38,12 @@ include "functions/connect.php";
                         <p>Rozwiąż interaktywaną opowieść</p>
                     </div>
                     <div class="helper">
-                        <img src="img/comic.png">
+                        <img src="img/comic.png" alt="">
                     </div>
                 </a>
             </div>
         </div>
     </div>
-</body>
+
 
 </html>

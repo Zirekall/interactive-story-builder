@@ -44,3 +44,6 @@ footer p{
     text-align: center;
     color: white;
 }
+#results{
+    display:none;
+}

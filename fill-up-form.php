@@ -52,10 +52,10 @@ if ($x==0) {
             };
             $conn->close();
             ?>
-            <input type='submit' value='wyslij'>
+            <input class="btn btn-success" type='submit' value='wyslij'>
             </form>
 
         </div>
     </div>
-</body>
+
 <?php include "footer.php"?>

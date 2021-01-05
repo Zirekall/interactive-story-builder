@@ -19,6 +19,16 @@ $(document).on('click', '#removeRow', function () {
     $(this).closest('#inputFormRow').remove();
 });
 
-function ShowLink() {
-    document.getElementById("directlink").innerHTML = "<a href='../fill-up-form.php?id=<?php echo ";  
-  };
+
+
+$("#editbtn").click(function(){
+    $("#edit").slideToggle();
+});
+
+$("button").click(function(){
+  $("#results").table2excel({
+    name:"Wyniki formularza",
+    filename:"Wyniki_Formularza",
+    fileext:".csv"
+  });
+});

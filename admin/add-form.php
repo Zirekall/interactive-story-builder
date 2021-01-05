@@ -45,7 +45,6 @@
         </form>
       </div>
     </div>
-    <script src="../functions/scripts.js"></script>
 
-</body>
+
 <?php include "../footer.php"?>
