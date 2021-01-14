@@ -9,6 +9,7 @@
       }
 
       include "header.php";
+      $adminID=$_SESSION['ID'];
     ?>
 
 
@@ -38,6 +39,17 @@
                         <option value="1">Tak</option>
                         <option value="0">Nie</option>
                     </select>
+                    <label for="storyID">Przypisz do opowiesci</label>
+                    <select name="storyID">
+                        <option value="">Nie przypisuj</option>
+                        <?php
+                           $sql=$conn->query("SELECT * FROM opowiesci WHERE adminID = '$adminID'");
+                            while($s=$sql->fetch_assoc()){
+                                echo '
+                                <option value="'.$s['id_opowiesci'].'">'.$s['Nazwa'].'</option>
+                                ';
+                            }
+                        ?>
                     <button id="addRow" type="button" class="btn btn-info float-left ml-3">Dodaj Pytanie</button>
                     <input type="submit" value="Dodaj formularz" class="btn btn-primary float-right mr-3">
                 </div>

@@ -40,7 +40,7 @@ $results=$conn->query("SELECT * FROM form_wyniki WHERE ID_formularza = '$formID'
                     echo "<td>".$r['data']."</td>";
                     echo "</tr>";
                 }
-
+                $conn->close();
             ?>
         </tbody>
         </table>

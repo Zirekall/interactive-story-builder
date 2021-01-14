@@ -13,10 +13,11 @@ $name = $_POST['tytul'];
 $questions = $_POST['pytanie'];
 $label = $_POST['etykieta'];
 $listed = $_POST['listed'];
+$storyID = $_POST['storyID'];
 $x = count($questions);
 
 
-$query = $conn->query("UPDATE formularze SET nazwa_formularza = '$name' WHERE ID_formularza = '$formID'");
+$query = $conn->query("UPDATE formularze SET nazwa_formularza = '$name', id_opowiesci = '$storyID' WHERE ID_formularza = '$formID'");
 
 
 for ($i=0; $i < $x; $i++) { 

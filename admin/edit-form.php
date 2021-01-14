@@ -9,20 +9,24 @@
       }
 
       include "header.php";
+      $adminID = $_SESSION['ID'];
       $formID = $_GET['id'];
       $sql=$conn->query("SELECT adminID, nazwa_formularza FROM formularze WHERE ID_formularza = '$formID'");
       $x=$sql->fetch_assoc();
-      if ($_SESSION['ID']!=$x['adminID']) {
+      if ($_SESSION['ID']!=$adminID) {
           header("Location: index.php");
           exit();
       }
-      $sql=$conn->query("SELECT tresc,etykieta FROM pytania WHERE ID_formularza = '$formID'");
-      $q=$sql->fetch_assoc();
+
+
+   
+      
     ?>
 
 <body>
     <div class="container">
         <div id="directlink" class="center">
+        <?php echo "<h3>".$x['nazwa_formularza']."</h3>";?>
             <a class="btn btn-primary mt-5" href="../fill-up-form.php?id=<?php echo $_GET['id']?>" target="_blank">Przejdź do
                 formularza</a>
             <button class="btn btn-primary mt-5" id="editbtn" onclick="toggleForm()">Edytuj formularz</a>
@@ -56,16 +60,28 @@
                 
                 ';
                 }
-                $conn->close();
+                
             ?>
 
                 </div>
                 <div id="newRow"></div>
                 <div class="text-center">
                     <label for="listed">Pokazać na liście testów?</label>
-                    <select name="listed">
+                    <select name="listed" class="mr-4">
                         <option value="1">Tak</option>
                         <option value="0">Nie</option>
+                    </select>
+                    <label for="storyID">Przypisz do opowiesci</label>
+                    <select name="storyID">
+                        <option value="">Nie przypisuj</option>
+                        <?php
+                           $sql=$conn->query("SELECT * FROM opowiesci WHERE adminID = '$adminID'");
+                            while($s=$sql->fetch_assoc()){
+                                echo '
+                                <option value="'.$s['id_opowiesci'].'">'.$s['Nazwa'].'</option>
+                                ';
+                            }
+                        ?>
                     </select>
                     <button id="addRow" type="button" class="btn btn-info float-left ml-3">Dodaj Pytanie</button>
                     <input type="submit" value="Wyślij" class="btn btn-primary float-right mr-3">
