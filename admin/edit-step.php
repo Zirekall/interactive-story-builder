@@ -49,8 +49,8 @@
                         echo '<tr>
                         <td>'.++$i.'</td>
                         <td>'.$s['nastepny'].'</td>
-                        <td><form method="POST" action="edit-step.php">
-                        <input type="hidden" name="ID" value="'.$s['id_kroku'].'"><input type="submit" name="wyslij" value="Edytuj" class="btn btn-primary"></form>
+                        <td><form method="POST" action="edit-route.php">
+                        <input type="hidden" name="ID" value="'.$s['id_drogi'].'"><input type="submit" name="wyslij" value="Edytuj" class="btn btn-primary"></form>
                         </td>
                         </tr>';
                     }
@@ -58,7 +58,7 @@
                 ?>
             </tbody>
         </table>
-        <a type="button" class="btn btn-primary m-3" href="add-step.php?id=<?php echo $storyID ?>">Dodaj krok</a>
+        <a type="button" class="btn btn-primary m-3" href="add-route.php?id=<?php echo $stepID ?>">Dodaj ścieżke</a>
       </div>
     </div>
 

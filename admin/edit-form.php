@@ -13,7 +13,7 @@
       $formID = $_GET['id'];
       $sql=$conn->query("SELECT adminID, nazwa_formularza FROM formularze WHERE ID_formularza = '$formID'");
       $x=$sql->fetch_assoc();
-      if ($_SESSION['ID']!=$adminID) {
+      if ($_SESSION['ID']!=$x['adminID']) {
           header("Location: index.php");
           exit();
       }
