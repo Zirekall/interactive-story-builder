@@ -10,6 +10,7 @@ $query = $conn->query("DELETE FROM pytania WHERE ID_formularza ='$formID'");
 
 $userID = $_SESSION['ID'];
 $name = $_POST['tytul'];
+$type = $_POST['typ'];
 $questions = $_POST['pytanie'];
 $label = $_POST['etykieta'];
 $listed = $_POST['listed'];
@@ -21,7 +22,7 @@ $query = $conn->query("UPDATE formularze SET nazwa_formularza = '$name', id_opow
 
 
 for ($i=0; $i < $x; $i++) { 
-    if($query = $conn->query("INSERT INTO pytania VALUES (NULL, '$formID','$questions[$i]', '$label[$i]')")){
+    if($query = $conn->query("INSERT INTO pytania VALUES (NULL,".++$j.", '$formID','$questions[$i]', '$label[$i]','$type[$i]')")){
     } else {
         throw new Exception(mysqli_connect_errno());
     }

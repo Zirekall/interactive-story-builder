@@ -1,10 +1,16 @@
 $("#addRow").click(function () {
     var html = '';
     html += '<div id="inputFormRow" >';
-    html += '<div class="input-group mb-3 col-lg-7 float-left">';
+    html += '<div class="mb-3 btn col-lg-2 float-left">';
+    html += '<select name="typ[]" required>';
+    html += '<option value="Pozytywne">Pozytywne</option>';
+    html += '<option value="Negatywne">Negatywne</option>';
+    html += '</select>';
+    html += '</div>';
+    html += '<div class="input-group mb-3 col-lg-6 float-left">';
     html += '<input type="text" name="pytanie[]" class="form-control m-input" placeholder="Treść pytania" autocomplete="off" required>';
     html += '</div>'
-    html += '<div class="input-group mb-3 col-lg-5 float-right">';
+    html += '<div class="input-group mb-3 col-lg-4 float-right">';
     html += '<input type="text" name="etykieta[]" class="form-control m-input" placeholder="Etykieta" autocomplete="off">';
     html += '<div class="input-group-append">';
     html += '<button id="removeRow" type="button" class="btn btn-danger">Usuń pytanie</button>';

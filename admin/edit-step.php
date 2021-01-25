@@ -46,9 +46,15 @@
                     $sql=$conn->query("SELECT * FROM drogi WHERE id_kroku = '$stepID'");
                     $i=0;
                     while($s=$sql->fetch_assoc()){
+                        if ($s['nastepny']==0) {
+                            $nastepny="koniec";
+                        }
+                        else{
+                            $nastepny=$s['nastepny'];
+                        }
                         echo '<tr>
                         <td>'.++$i.'</td>
-                        <td>'.$s['nastepny'].'</td>
+                        <td>'.$nastepny.'</td>
                         <td><form method="POST" action="edit-route.php">
                         <input type="hidden" name="ID" value="'.$s['id_drogi'].'"><input type="submit" name="wyslij" value="Edytuj" class="btn btn-primary"></form>
                         </td>

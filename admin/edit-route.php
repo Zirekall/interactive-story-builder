@@ -47,7 +47,7 @@
                     echo "<option value='".$list['numer_kroku']."'>".$list['numer_kroku']."</option>";};
                 $conn->close();
             ?>
-                
+            <option value="0">Koniec</option>
             </select><br>
 
             <input type="submit" value="Wyślij" class="btn btn-primary m-3">

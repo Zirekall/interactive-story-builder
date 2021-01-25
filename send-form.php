@@ -12,8 +12,8 @@
     
     $resultID=uniqid();
     $formID=$_POST['ID'];
-    if (!isset($_SESSION["$formID"])) {
-        $_SESSION["$formID"]=$resultID;
+    //if (!isset($_SESSION["$formID"])) {
+        //$_SESSION["$formID"]=$resultID;
     
         $result=0;
         $max=0;
@@ -22,12 +22,12 @@
         }
 
         foreach ($_POST['answer'] as $key => $odp) {
-            $sql=$conn->query("INSERT INTO odpowiedzi VALUES (NULL,'$resultID','$odp');");
+            $sql=$conn->query("INSERT INTO odpowiedzi VALUES (NULL,'$resultID',++$i,'$odp');");
         }
 
         $sql=$conn->query("INSERT INTO form_wyniki VALUES ('$resultID','$result',CURRENT_TIMESTAMP,'$formID');");
         $conn->close();
-    }
+    //}
 
 ?>
 
@@ -37,7 +37,7 @@
             <div class="text-center">
                 <form>
                     <label for="code"><h2 class="mt-4">Twój kod dostępu do interaktywnej opowieści:<br><span style="color: red;"><?php echo $_SESSION["$formID"] ?></span></h2></label><br>
-                    <h3>Skopiuj go i podaj go na <a href="enter-code.php" target="_blank">tej strone</a></h3>
+                    <h3>Skopiuj go i podaj na <a href="enter-code.php" target="_blank">tej strone</a></h3>
                 </form>
             </div>
         </div>

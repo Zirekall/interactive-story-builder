@@ -1,16 +1,15 @@
 <?php
 $title="Internetowy kwestionariusz osobowości - Interaktywa opowieść";
-$header="Oto twoje rozwiązanie";
+$header="Interaktywna opowieść";
 include "header.php";
-echo uniqid();
+
 ?>
 
 <body>
     <div class="container">
         <div id=login-panel>
             <div class="text-center">
-                <img src="https://lorr.herokuapp.com/system/question/a_img/77/main_hangmans_knot.jpg">
-
+                <h3 class="mt-4">Podaj kod dostępu</h3>
             </div>
         </div>
     </div>

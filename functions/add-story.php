@@ -8,14 +8,14 @@ if(!isset($_SESSION['loggedin'])) {
 $storyID = uniqid();
 $userID = $_SESSION['ID'];
 $name = $_POST['tytul'];
-$text = $_POST['step1'];
-$listed = $_POST['listed'];
-
+$left = $_POST['left'];
+$right = $_POST['right'];
+$label = $_POST['label'];
 
 
 $query = $conn->query("INSERT INTO opowiesci VALUES ('$storyID', '$userID','$name', NOW())");
 
-$query = $conn->query("INSERT INTO kroki VALUES (NULL, '$storyID',1, '$text')");
+$query = $conn->query("INSERT INTO czesci VALUES (NULL, 1,'$left','$right','$label',0,'$storyID')");
 
 $conn->close();
 header('Location: ../admin/index.php');

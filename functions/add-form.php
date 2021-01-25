@@ -8,6 +8,7 @@ if(!isset($_SESSION['loggedin'])) {
 $formID = uniqid();
 $userID = $_SESSION['ID'];
 $name = $_POST['tytul'];
+$type = $_POST['typ'];
 $questions = $_POST['pytanie'];
 $label = $_POST['etykieta'];
 $listed = $_POST['listed'];
@@ -21,7 +22,7 @@ if($query = $conn->query("INSERT INTO formularze VALUES ('$formID', '$userID','$
 }
 
 for ($i=0; $i < $x; $i++) { 
-    if($query = $conn->query("INSERT INTO pytania VALUES (NULL, '$formID','$questions[$i]', '$label[$i]')")){
+    if($query = $conn->query("INSERT INTO pytania VALUES (NULL,".++$j.", '$formID','$questions[$i]', '$label[$i]','$type[$i]')")){
     } else {
         throw new Exception(mysqli_connect_errno());
     }
