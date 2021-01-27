@@ -53,8 +53,8 @@
                                 echo "<td>".$part['poprzednia']."</td>";
                             }
                             echo '<td>'.$part['label'].'
-                            <td><form method="GET" action="edit-chapter.php">
-                            <input type="hidden" name="ID" value="'.$part['globalID'].'"><input type="submit" name="wyslij" value="Edytuj" class="btn btn-primary"></form>
+                            <td><form method="POST" action="edit-chapter.php">
+                            <input type="hidden" name="ID" value="'.$part['globalID'].'"><input type="hidden" name="storyID" value="'.$storyID.'"><input type="submit" name="wyslij" value="Edytuj" class="btn btn-primary"></form>
                             </td>
                             <td><form method="POST" action="../functions/delete-chapter.php">
                             <input type="hidden" name="ID" value="'.$part['globalID'].'"><input type="submit" name="wyslij" value="Usuń" class="btn btn-danger"></form>

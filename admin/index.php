@@ -64,7 +64,7 @@
           <thead>
               <tr>
               <th scope="col" id="col-nazwa">Nazwa</th>
-              <th scope="col">Liczba kroków</th>
+              <th scope="col">Liczba części</th>
               <th scopr="col">Data utworzenia</th>
               <th scopr="col"></th>
               </tr>
@@ -75,12 +75,12 @@
               $wyniki = $conn->query($sql);
               while($wiersz = $wyniki->fetch_assoc()){
               $storyID=$wiersz['id_opowiesci'];
-              $x=$conn->query("SELECT COUNT(numer_kroku) AS liczba_Krokow FROM kroki WHERE id_opowiesci='$storyID'");
+              $x=$conn->query("SELECT COUNT(globalID) AS numofchapters FROM czesci WHERE ID_opowiesci='$storyID'");
               $x=$x->fetch_assoc();
               echo '
               <tr>
               <th scope="row"><a href="edit-story.php?id='.$storyID.'">'.$wiersz['Nazwa'].'</a></th>
-              <td>'.$x['liczba_Krokow'].'</td>
+              <td>'.$x['numofchapters'].'</td>
               <td>'.$wiersz['data_utworzenia'].'</td>
               <td><form action="../functions/delete-story.php" method="post">
               <input type="hidden" name="ID" value="'.$wiersz['id_opowiesci'].'"><input type="submit" name="results" value="Usuń" class="btn btn-danger"></form></td>
