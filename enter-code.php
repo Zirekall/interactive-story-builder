@@ -12,6 +12,7 @@ if(isset($_POST['code'])){
         echo "siema";
         $_SESSION['story']=$code;
         header("Location: story.php?id=".$code);
+        exit();
     }
 }
 

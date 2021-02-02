@@ -10,16 +10,17 @@
 
       include "header.php";
       $storyID = $_GET['id'];
-      if (isset($_POST['title'])) {
-        $title=$_POST['title'];
-          $sql=$conn->query("UPDATE opowiesci SET Nazwa='$title' WHERE ID_opowiesci= '$storyID'");
-          echo "<center>Tytuł został zmieniony</center>";
-      }
+
       $sql=$conn->query("SELECT adminID, Nazwa FROM opowiesci WHERE ID_opowiesci= '$storyID'");
       $x=$sql->fetch_assoc();
       if ($_SESSION['ID']!=$x['adminID']) {
           header("Location: index.php");
           exit();
+      }
+      if (isset($_POST['title'])) {
+        $title=$_POST['title'];
+          $sql=$conn->query("UPDATE opowiesci SET Nazwa='$title' WHERE ID_opowiesci= '$storyID'");
+          echo "<center>Tytuł został zmieniony</center>";
       }
 
       
@@ -57,7 +58,7 @@
                             <input type="hidden" name="ID" value="'.$part['globalID'].'"><input type="hidden" name="storyID" value="'.$storyID.'"><input type="submit" name="wyslij" value="Edytuj" class="btn btn-primary"></form>
                             </td>
                             <td><form method="POST" action="../functions/delete-chapter.php">
-                            <input type="hidden" name="ID" value="'.$part['globalID'].'"><input type="submit" name="wyslij" value="Usuń" class="btn btn-danger"></form>
+                            <input type="hidden" name="delete" value="'.$part['globalID'].'"><input type="hidden" name="storyID" value="'.$storyID.'"><input type="submit" name="wyslij" value="Usuń" class="btn btn-danger"></form>
                             </td>
                             </tr>';
                         }
@@ -65,7 +66,7 @@
                     ?>
                 </tbody>
             </table>
-            <a type="button" class="btn btn-primary m-3" href="add-chapter.php?id=<?php echo $storyID ?>">Dodaj krok</a>
+            <a type="button" class="btn btn-primary m-3" href="add-chapter.php?id=<?php echo $storyID ?>">Dodaj część</a>
     </div>
 
 <?php 

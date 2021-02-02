@@ -9,11 +9,11 @@
     $title="Internetowy kwestionariusz osobowości - Interaktywa opowieść";
     $header="Interaktywna opowieść";
     include "header.php";
-    
+    $i=0;
     $resultID=uniqid();
     $formID=$_POST['ID'];
-    //if (!isset($_SESSION["$formID"])) {
-        //$_SESSION["$formID"]=$resultID;
+    if (!isset($_SESSION["$formID"])) {
+        $_SESSION["$formID"]=$resultID;
     
         $result=0;
         $max=0;
@@ -27,7 +27,7 @@
 
         $sql=$conn->query("INSERT INTO form_wyniki VALUES ('$resultID','$result',CURRENT_TIMESTAMP,'$formID');");
         $conn->close();
-    //}
+    }
 
 ?>
 

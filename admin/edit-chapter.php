@@ -24,6 +24,7 @@
       <div class="text-center">
         <form method="post" action="../functions/edit-chapter.php">
         <input type="hidden" value="<?php echo $chapterID ?>" name='ID'>
+        <input type="hidden" value="<?php echo $storyID ?>" name='storyID'>
             <div class="col-lg-6 float-left">
                 <h3>Edytuj lewą strone</h3>
                 <textarea name="left" id="text" rows="10" cols="80" required>

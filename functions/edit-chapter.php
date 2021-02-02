@@ -9,6 +9,7 @@ $globalID=$_POST['ID'];
 $left=$_POST['left'];
 $right=$_POST['right'];
 $label=$_POST['label'];
+$storyID=$_POST['storyID'];
 
 if (isset($_POST['previous'])) {
     $previous=$_POST['previous'];
