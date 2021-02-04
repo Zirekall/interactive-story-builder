@@ -15,9 +15,8 @@
 
 
 <body>
-<script src="../CKEditor4/ckeditor.js"></script>
-    <div class="container ">
-      <div class="text-center">
+    <script src="../CKEditor4/ckeditor.js"></script>
+    <div class="container text-center">
         <form method="post" action="../functions/add-chapter.php">
             <input type="hidden" value="<?php echo $_GET['id']?>" name='storyID'>
             <div class="col-lg-6 float-left">
@@ -26,9 +25,9 @@
                     Treść lewej strony
                 </textarea>
                 <script>
-                    CKEDITOR.replace('left',{
-                        filebrowserUploadUrl: '../functions/upload.php'
-                    });
+                CKEDITOR.replace('left', {
+                    filebrowserUploadUrl: '../upload.php'
+                });
                 </script>
             </div>
             <div class="col-lg-6 float-right">
@@ -37,27 +36,29 @@
                     Treść prawej strony
                 </textarea>
                 <script>
-                    CKEDITOR.replace('right',{
-                        filebrowserUploadUrl: '../functions/upload.php'
-                    });
+                CKEDITOR.replace('right', {
+                    filebrowserUploadUrl: '../upload.php'
+                });
                 </script>
             </div>
-            <label for="next">Wybierz krok poprzedni:</label>
+            <div>
+                <label for="next">Wybierz krok poprzedni:</label>
 
-            <select name="previous" class="mt-3">
-                <?php
-                    while($list=$sql->fetch_assoc()){
-                        echo "<option value='".$list['localID']."'>".$list['localID']."</option>";};
-                    $conn->close();
-                ?>
+                <select name="previous[]" id="previous" size="2" class="mt-3" multiple>
+                    <?php
+                        while($list=$sql->fetch_assoc()){
+                            echo "<option class='text-center' value='".$list['localID']."'>".$list['localID']."</option>";};
+                        $conn->close();
+                    ?>
+                </select><br>
 
-            <input type="text" name="label" class="form-control m-input col-lg-11 ml-auto mr-auto mt-2" placeholder="Krótki podpis części" autocomplete="off">
+            </div>
+            <input type="text" name="label" class="form-control m-input col-lg-11 ml-auto mr-auto mt-2"
+                placeholder="Krótki podpis części" autocomplete="off">
 
             <input type="submit" value="Dodaj część" class="btn btn-primary float-right m-4">
-            </select><br>
         </form>
-      </div>
     </div>
 
 
-<?php include "../footer.php"?>
+    <?php include "../footer.php"?>

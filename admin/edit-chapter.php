@@ -32,7 +32,7 @@
                 </textarea>
                 <script>
                     CKEDITOR.replace('left',{
-                        filebrowserUploadUrl: '../functions/upload.php'
+                        filebrowserUploadUrl: '../upload.php'
                     });
                 </script>
             </div>
@@ -43,7 +43,7 @@
                 </textarea>
                 <script>
                     CKEDITOR.replace('right',{
-                        filebrowserUploadUrl: '../functions/upload.php'
+                        filebrowserUploadUrl: '../upload.php'
                     });
                 </script>
             </div>
@@ -51,7 +51,7 @@
                 echo "
                 <label for='next'>Wybierz krok poprzedni:</label>
 
-                <select name='previous' class='mt-3'>";
+                <select name='previous[]'id='previous' size='2' class='mt-3' multiple>";
                 while($list=$sql->fetch_assoc()){
                     echo "<option value='".$list['localID']."'>".$list['localID']."</option>";};
                 $conn->close();
@@ -59,7 +59,7 @@
                 echo "</select>";
             }
             ?>
-
+            (przytrzymaj CTRL aby zaznaczyć kilka opcji)
             <input type="text" name="label" class="form-control col-lg-11 ml-auto mr-auto mt-2" placeholder="Krótki podpis części" autocomplete="off" value="<?php echo $chapterData['label'];?>">
 
             <input type="submit" value="Edytuj część" class="btn btn-primary float-right m-4">

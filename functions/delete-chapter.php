@@ -4,7 +4,7 @@
     $storyID=$_POST['storyID'];
 
     $sql=$conn->query("DELETE FROM czesci WHERE globalID= '$delete'");
-    
+    $sql=$conn->query("DELETE FROM sciezki WHERE globalID= '$delete'");
     $sql=$conn->query("SELECT globalID FROM czesci WHERE ID_opowiesci = '$storyID'");
     $i=0;
     while($new=$sql->fetch_assoc()){

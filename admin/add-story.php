@@ -26,7 +26,7 @@
                     </textarea>
                     <script>
                         CKEDITOR.replace('left',{
-                            filebrowserUploadUrl: '../functions/upload.php'
+                            filebrowserUploadUrl: '../upload.php'
                         });
                     </script>
                 </div>
@@ -37,7 +37,7 @@
                     </textarea>
                     <script>
                         CKEDITOR.replace('right',{
-                            filebrowserUploadUrl: '../functions/upload.php'
+                            filebrowserUploadUrl: '../upload.php'
                         });
                     </script>
                 </div>

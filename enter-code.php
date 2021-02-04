@@ -7,9 +7,7 @@ if(isset($_POST['code'])){
     $code=$_POST['code'];
     $sql=$conn->query("SELECT * FROM form_wyniki WHERE ID_wyniku='$code'");
     $x=$sql->num_rows;
-    print_r($x);
     if($x==1){  
-        echo "siema";
         $_SESSION['story']=$code;
         header("Location: story.php?id=".$code);
         exit();

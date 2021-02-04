@@ -5,6 +5,7 @@
     
     $usun=$conn->query("DELETE FROM czesci WHERE ID_opowiesci ='$ID'");
     $usun=$conn->query("DELETE FROM opowiesci WHERE ID_opowiesci ='$ID'");
+    $usun=$conn->query("DELETE FROM sciezki WHERE ID_opowiesci ='$ID'");
 
     $conn->close();
     header('Location: ../admin/index.php');

@@ -50,3 +50,25 @@ footer p{
 #results tr th{
    background-color: rgb(149, 245, 192);
 }
+
+select#previous{
+    width: 50px;
+}
+
+#story-left{
+    min-height: 700px;
+}
+
+#story-left img{
+    max-width: 100%;
+    height: auto!important;
+}
+
+#story-right{
+    min-height: 700px;
+}
+
+#story-right img{
+    max-width: 100%;
+    height: auto!important;
+}

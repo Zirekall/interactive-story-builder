@@ -9,7 +9,6 @@ $sql=$conn->query("SELECT ID_formularza FROM form_wyniki WHERE ID_wyniku = '$use
 $x=$sql->num_rows;
 
 if($x!=1){  
-    echo "siema";
     unset ($_SESSION['story']);
     header("Location: enter-code.php");
     $conn->close();
@@ -47,14 +46,15 @@ if(!isset($_POST['part'])){
 
 <body>
     <div class="container">
-        <div class="col-lg-5 float-left">
+        <div id="story-left" class="col-lg-5 float-left border rounded">
         <?php echo $tresc['Lewo'];?>        
         </div>
-        <div class="col-lg-5 float-left">
+        <div id="story-right" class="col-lg-5 float-left border rounded">
         <?php echo $tresc['prawo'];?>        
         </div>
         <div class="col-lg-2 float-right">
         sdsds s dsds dssd s ds ds sd
         </div>
     </div>
-<?php include "footer.php"?>
+</body>
+</html>
