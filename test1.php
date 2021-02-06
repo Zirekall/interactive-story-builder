@@ -1,16 +1,20 @@
 <?php
+$x=1;
+$siema= array (
+    $x,
+    array('dfg45gdfs','gsdgd3r4',1,'2012-12-23'),
+    array('23','gsdgd3r4524',3252,'3'),
+);
 
-// $siema= array (
-//     array('dfg45gdfs','gsdgd3r4',1,'2012-12-23'),
-// );
+array_push($siema[1],'new','new','new3','new4',);
 
-// //array_push($siema['elo'],3,4,525);
+array_push($siema,array('2nomc','2siema',2,'222-23-3'));
 
-// array_push($siema,array('2nomc','2siema',2,'222-23-3'));
+print_r($siema);
 
-// print_r($siema);
+echo date('Y-m-d H:i:s');
 
-print_r($_GET);
+// print_r($_GET);
 
 ?>
 

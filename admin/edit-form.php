@@ -31,7 +31,7 @@
                 formularza</a>
             <button class="btn btn-primary mt-5" id="editbtn" onclick="toggleForm()">Edytuj formularz</a>
         </div>
-        <div id="edit" style="display:none">
+        <div id="edit" class="row" style="display:none">
             <h3 class="mt-5 center">Edytuj formularz</h3>
             <form method="post" action="../functions/edit-form.php">
                 <input type="hidden" name="formID" value="<?php echo $formID?>">

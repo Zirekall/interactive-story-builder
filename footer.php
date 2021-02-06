@@ -6,3 +6,4 @@
 </footer>
 <script src="../functions/scripts.js"></script>
 </body>
+</html>
