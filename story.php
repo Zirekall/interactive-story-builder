@@ -16,13 +16,29 @@ if($x!=1){
     exit();
 }
 
+$sql=$conn->query("SELECT * FROM story_wyniki WHERE ID_wyniku = '$userID'");
+$x=$sql->num_rows;
+if($x!=0){  
+    unset ($_SESSION['story']);
+    header("Location: enter-code.php");
+    $conn->close();
+    $_SESSION['storyerror']="Ten kod został już wykorzystany.";
+    exit();
+}
+
 $formID=$sql->fetch_assoc();
 $formID=$formID['ID_formularza'];
 
 $sql=$conn->query("SELECT ID_opowiesci FROM formularze WHERE ID_formularza='$formID'");
 $storyID=$sql->fetch_assoc();
 $storyID=$storyID['ID_opowiesci'];
-
+if($storyID==NULL){  
+    unset ($_SESSION['story']);
+    header("Location: enter-code.php");
+    $conn->close();
+    $_SESSION['storyerror']="Do tego formularza nie została przypisana żadna opowieść.";
+    exit();
+}
 
 if(!isset($_POST['part'])){
 
@@ -45,23 +61,21 @@ if(!isset($_POST['part'])){
     }
     else {
 
+        $localID=$_POST['part'];
+        $sql=$conn->query("SELECT * FROM czesci WHERE ID_opowiesci='$storyID' AND localID='$localID'");
+        $chapter=$sql->fetch_assoc();
+    
+        $globalID=$chapter['globalID'];
+        $localID=$chapter['localID'];
+
         array_push($_SESSION["$userID"][1],"$globalID");
         array_push($_SESSION["$userID"][2],"$localID");
         array_push($_SESSION["$userID"][3],date('Y-m-d H:i:s'));
     
 }
-
 $sql=$conn->query("SELECT globalID FROM sciezki WHERE poprzedni=$localID AND ID_opowiesci='$storyID'");
-$y=$sql->fetch_assoc();
-$y=$y['globalID'];
-$sql=$conn->query("SELECT label FROM czesci WHERE globalID='$y'");
+$nr=$sql->num_rows;
 
-
-// TO DO:
-// - obsługa części innych niż 1
-// - wyswietlanie przycisków
-// - zapisywanie danych po każdej cześci
-// - wymyślenie jak obsłużyć zakończenie historii
 ?>
 
 <body>
@@ -75,8 +89,30 @@ $sql=$conn->query("SELECT label FROM czesci WHERE globalID='$y'");
             </div>
             <div id="story-label" class="col-lg-2 float-right">
                 <?php 
-                while ($get_dane=$sql->fetch_assoc()) {
-                    echo $get_dane['label']."</br>";
+
+                if ($nr!=0) {
+                while ($y=$sql->fetch_assoc()) {
+                    $id=$y['globalID'];
+                    $sql2=$conn->query("SELECT label,localID FROM czesci WHERE globalID='$id'");
+                    $get_dane=$sql2->fetch_assoc();
+                    echo "
+                    <div class='next'>
+                    <form action='story.php?id=$userID' method='post'>
+                    <input type='hidden' name='part' value='".$get_dane['localID']."'>
+                    <input type='image' src='img/arrow.png'/><br>
+                    ";
+                    echo $get_dane['label'];
+                    echo "</div>";
+                }
+                }else {
+                    echo "
+                    <div class='next'>
+                    <form action='submit-story.php' method='post'>
+                    <input type='hidden' name='userID' value='$userID'>
+                    <input type='image' src='img/arrow.png'/><br>
+                    <b>Zakończ i zapisz historie</b>
+                    ";
+                    echo "</div>";
                 }
                 ?>
             </div>

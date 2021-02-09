@@ -9,12 +9,12 @@
     $title="Internetowy kwestionariusz osobowości - Interaktywa opowieść";
     $header="Interaktywna opowieść";
     include "header.php";
-    $i=0;
+    
     $resultID=uniqid();
     $formID=$_POST['ID'];
     if (!isset($_SESSION["$formID"])) {
         $_SESSION["$formID"]=$resultID;
-    
+        $i=1;
         $result=0;
         $max=0;
         foreach ($_POST['answer'] as $key => $points) {
@@ -22,7 +22,8 @@
         }
 
         foreach ($_POST['answer'] as $key => $odp) {
-            $sql=$conn->query("INSERT INTO odpowiedzi VALUES (NULL,'$resultID',++$i,'$odp');");
+            $sql=$conn->query("INSERT INTO odpowiedzi VALUES (NULL,'$resultID',$i,$odp);");
+            $i++;
         }
 
         $sql=$conn->query("INSERT INTO form_wyniki VALUES ('$resultID','$result',CURRENT_TIMESTAMP,'$formID');");

@@ -44,7 +44,7 @@
               <th scope="row"><a href="edit-form.php?id='.$formID.'">'.$wiersz['nazwa_formularza'].'</a></th>
               <td>'.$wiersz['data_utworzenia'].'</td>
               <td>'.$policzone['total'].'</td>
-              <td><form action="export.php" method="post">
+              <td><form action="export_form.php" method="post">
               <input type="hidden" name="ID" value="'.$wiersz['ID_formularza'].'"><input type="submit" name="results" value="Pobierz wyniki" class="btn btn-primary"></form></td>
               <td><form action="../functions/delete-form.php" method="post">
               <input type="hidden" name="ID" value="'.$wiersz['ID_formularza'].'"><input type="submit" name="results" value="Usuń" class="btn btn-danger"></form></td>
@@ -67,6 +67,7 @@
               <th scope="col">Liczba części</th>
               <th scopr="col">Data utworzenia</th>
               <th scopr="col"></th>
+              <th scopr="col"></th>
               </tr>
           </thead>
           <tbody id="admin-table">
@@ -82,6 +83,8 @@
               <th scope="row"><a href="edit-story.php?id='.$storyID.'">'.$wiersz['Nazwa'].'</a></th>
               <td>'.$x['numofchapters'].'</td>
               <td>'.$wiersz['data_utworzenia'].'</td>
+              <td><form action="export_story.php" method="post">
+              <input type="hidden" name="ID" value="'.$wiersz['id_opowiesci'].'"><input type="submit" name="results" value="Pobierz wyniki" class="btn btn-primary"></form></td>
               <td><form action="../functions/delete-story.php" method="post">
               <input type="hidden" name="ID" value="'.$wiersz['id_opowiesci'].'"><input type="submit" name="results" value="Usuń" class="btn btn-danger"></form></td>
               </tr>';
