@@ -18,7 +18,7 @@ $storyID = $_POST['storyID'];
 $x = count($questions);
 
 
-$query = $conn->query("UPDATE formularze SET nazwa_formularza = '$name', id_opowiesci = '$storyID' WHERE ID_formularza = '$formID'");
+$query = $conn->query("UPDATE formularze SET nazwa_formularza = '$name', id_opowiesci = '$storyID', listed=$listed WHERE ID_formularza = '$formID'");
 
 
 for ($i=0; $i < $x; $i++) { 
