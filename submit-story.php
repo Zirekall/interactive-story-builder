@@ -14,15 +14,20 @@
         exit();
     }
 
-
-
     $userID=$_POST['userID'];
+    $sql=$conn->query("SELECT * FROM story_wyniki WHERE ID_wyniku='$userID'");
+    $x=$sql->num_rows;
+    if($x!=0){
+        header("Location: index.php");
+        exit();
+    }
+    
     $i=0;
     $storyID=$_SESSION["$userID"][0];
     foreach ($_SESSION["$userID"][2] as $key => $localID) {
         $globalID=$_SESSION["$userID"][1][$i];
         $timestamp=$_SESSION["$userID"][3][$i];
-        $sql=$conn->query("INSERT INTO story_wyniki VALUES ('$userID','$storyID','$globalID',$localID,'$timestamp')");
+        $sql=$conn->query("INSERT INTO story_wyniki VALUES (NULL,'$userID','$storyID','$globalID',$localID,'$timestamp')");
         $i++;
     }
     unset($_SESSION['story']);

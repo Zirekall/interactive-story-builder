@@ -84,7 +84,7 @@
                            $sql=$conn->query("SELECT * FROM opowiesci WHERE adminID = '$adminID'");
                             while($s=$sql->fetch_assoc()){
                                 echo '
-                                <option value="'.$s['id_opowiesci'].'"'; if ($s['id_opowiesci']==$x['id_opowiesci']) {echo " selected>";} echo $s['Nazwa'].'</option>
+                                <option value="'.$s['id_opowiesci'].'"'; if ($s['id_opowiesci']==$x['id_opowiesci']) {echo " selected>";}else{echo ">";} echo $s['Nazwa'].'</option>
                                 ';
                             }
                         ?>

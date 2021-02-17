@@ -7,7 +7,7 @@ $userID=$_GET['id'];
 
 $sql=$conn->query("SELECT ID_formularza FROM form_wyniki WHERE ID_wyniku = '$userID'");
 $x=$sql->num_rows;
-
+print_r($_POST);
 if($x!=1){  
     unset ($_SESSION['story']);
     header("Location: enter-code.php");
@@ -25,13 +25,14 @@ if($x!=0){
     $_SESSION['storyerror']="Ten kod został już wykorzystany.";
     exit();
 }
-
+$sql=$conn->query("SELECT * FROM form_wyniki WHERE ID_wyniku = '$userID'");
 $formID=$sql->fetch_assoc();
 $formID=$formID['ID_formularza'];
 
-$sql=$conn->query("SELECT ID_opowiesci FROM formularze WHERE ID_formularza='$formID'");
+$sql=$conn->query("SELECT id_opowiesci FROM formularze WHERE ID_formularza='$formID'");
 $storyID=$sql->fetch_assoc();
-$storyID=$storyID['ID_opowiesci'];
+$storyID=$storyID['id_opowiesci'];
+
 if($storyID==NULL){  
     unset ($_SESSION['story']);
     header("Location: enter-code.php");
@@ -39,7 +40,6 @@ if($storyID==NULL){
     $_SESSION['storyerror']="Do tego formularza nie została przypisana żadna opowieść.";
     exit();
 }
-
 if(!isset($_POST['part'])){
 
     if(isset($_SESSION["$userID"])){
@@ -75,7 +75,6 @@ if(!isset($_POST['part'])){
 }
 $sql=$conn->query("SELECT globalID FROM sciezki WHERE poprzedni=$localID AND ID_opowiesci='$storyID'");
 $nr=$sql->num_rows;
-
 ?>
 
 <body>
@@ -93,8 +92,11 @@ $nr=$sql->num_rows;
                 if ($nr!=0) {
                 while ($y=$sql->fetch_assoc()) {
                     $id=$y['globalID'];
+                    
                     $sql2=$conn->query("SELECT label,localID FROM czesci WHERE globalID='$id'");
+                    
                     $get_dane=$sql2->fetch_assoc();
+                    echo $get_dane['localID'];
                     echo "
                     <div class='next'>
                     <form action='story.php?id=$userID' method='post'>
@@ -102,9 +104,9 @@ $nr=$sql->num_rows;
                     <input type='image' src='img/arrow.png'/><br>
                     ";
                     echo $get_dane['label'];
-                    echo "</div>";
-                }
-                }else {
+                    echo "</form></div>";
+                }}
+                else {
                     echo "
                     <div class='next'>
                     <form action='submit-story.php' method='post'>

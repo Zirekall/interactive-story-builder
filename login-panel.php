@@ -2,7 +2,7 @@
 @session_start();
 
 if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-header('Location:  admin.php');
+header('Location:  admin/index.php');
 exit();
 }
 $title = "Internetowy kwestionariusz osobowości - Panel logowania";
@@ -26,6 +26,7 @@ include "header.php";
             <?php 
                 if(isset($_SESSION['err'])) {
                     echo $_SESSION['err'];
+                    unset($_SESSION['err']);
                 } else { echo ''; } 
             ?>
         </div>

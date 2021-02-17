@@ -8,7 +8,6 @@ include "functions/connect.php";
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <script src="https://kit.fontawesome.com/fef7379b87.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
     <?php
     echo "<title>".$title."</title>";
