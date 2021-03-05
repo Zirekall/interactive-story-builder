@@ -31,10 +31,10 @@ if ($x==0) {
             while($wiersz = $pytania->fetch_assoc()){
                 $tresc=$wiersz['tresc'];
                 
-                echo "<div class='question p-4'>";
+                echo "<div class='question p-3 rounded border border-dark'>";
                 echo $tresc;
                 echo "</div>";
-                echo "<table class='table form-table'>";
+                echo "<table id='form-table' class='table form-table'>";
                 echo "<tbody>";
                 echo "<tr>";
                 echo "<th>Nie zgadzam się</th>";
@@ -43,7 +43,7 @@ if ($x==0) {
                 echo "<th><input type='radio' name='answer[". $i ."]' value='3' class='form-check-input'><label for='answer[]'>3</label class='form-check-label'></th>";
                 echo "<th><input type='radio' name='answer[". $i ."]' value='4' class='form-check-input'><label for='answer[]'>4</label class='form-check-label'></th>";
                 echo "<th><input type='radio' name='answer[". $i ."]' value='5' class='form-check-input'><label for='answer[]'>5</label class='form-check-label'></th>";
-                echo "<th style='max-width:100px'>Zgadzam się</th>";
+                echo "<th>Zgadzam się</th>";
                 echo "</tr>";
                 echo "<tbody>";
                 echo "</table>";

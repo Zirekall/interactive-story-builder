@@ -1,3 +1,7 @@
+@font-face {
+    font-family: Dosis;
+    src: url(Dosis.ttf);
+}
 html {
     position: relative;
     min-height: 100%;
@@ -54,20 +58,41 @@ footer p{
 select#previous{
     width: 50px;
 }
-
+@media (min-width: 1200px) { 
+#story-bg{
+    background-image: url(../img/story-bg.png);
+    padding-top:15px;
+    padding-bottom:15px;
+    background-repeat: no-repeat;
+    height: 644px;
+}
 #story-left{
-    min-height: 700px;
+    height: 600px;
+    overflow-y:auto;
+    border: none!important;
 }
 
+#story-right{
+    height: 600px;
+    overflow-y:auto;
+    border: none!important;
+}
+}
+@media (max-width: 1199px) { 
+    #story-left{
+        min-height: 600px;
+        overflow-y:auto;
+    }
+    
+    #story-right{
+        min-height: 600px;
+        overflow-y:auto;
+    }
+}
 #story-left img{
     max-width: 100%;
     height: auto!important;
 }
-
-#story-right{
-    min-height: 700px;
-}
-
 #story-right img{
     max-width: 100%;
     height: auto!important;
@@ -80,4 +105,11 @@ select#previous{
 .next{
     margin:60px auto;
     text-align: center;
+}
+#form .form-table{
+    margin-bottom: 0!important;
+}
+#form .table th:first-child{
+    text-align: right;
+    padding-right:40px;
 }

@@ -1,3 +1,7 @@
+@font-face {
+  font-family: Dosis;
+  src: url(Dosis.ttf);
+}
 html {
   height: 100%;
 }

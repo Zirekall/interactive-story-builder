@@ -7,7 +7,6 @@ $userID=$_GET['id'];
 
 $sql=$conn->query("SELECT ID_formularza FROM form_wyniki WHERE ID_wyniku = '$userID'");
 $x=$sql->num_rows;
-print_r($_POST);
 if($x!=1){  
     unset ($_SESSION['story']);
     header("Location: enter-code.php");
@@ -80,11 +79,13 @@ $nr=$sql->num_rows;
 <body>
     <div class="container">
         <div class="row">
-            <div id="story-left" class="col-lg-5 float-left border rounded">
-            <?php echo $chapter['Lewo'];?>        
-            </div>
-            <div id="story-right" class="col-lg-5 float-left border rounded">
-            <?php echo $chapter['prawo'];?>        
+            <div id="story-bg" class='col-lg-10 float-left'>
+                <div id="story-left" class="col-lg-6 float-left border rounded">
+                <?php echo $chapter['Lewo'];?>        
+                </div>
+                <div id="story-right" class="col-lg-6 float-left border rounded">
+                <?php echo $chapter['prawo'];?>        
+                </div>
             </div>
             <div id="story-label" class="col-lg-2 float-right">
                 <?php 
@@ -96,7 +97,6 @@ $nr=$sql->num_rows;
                     $sql2=$conn->query("SELECT label,localID FROM czesci WHERE globalID='$id'");
                     
                     $get_dane=$sql2->fetch_assoc();
-                    echo $get_dane['localID'];
                     echo "
                     <div class='next'>
                     <form action='story.php?id=$userID' method='post'>
