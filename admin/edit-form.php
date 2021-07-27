@@ -31,7 +31,7 @@
                 formularza</a>
             <button class="btn btn-primary mt-5" id="editbtn" onclick="toggleForm()">Edytuj formularz</a>
         </div>
-        <div id="edit" class="row" style="display:none">
+        <div id="edit" class="" style="display:none">
             <h3 class="mt-5 center">Edytuj formularz</h3>
             <form method="post" action="../functions/edit-form.php">
                 <input type="hidden" name="formID" value="<?php echo $formID?>">
@@ -39,13 +39,14 @@
                     placeholder="Tytuł formularza" value='<?php echo $x["nazwa_formularza"]?>' autocomplete="off"
                     required>
 
-                <div id="inputFormRow">
+                
 
             <?php
                 $sql=$conn->query("SELECT tresc,etykieta,Typ FROM pytania WHERE ID_formularza = '$formID'");
 
                 while($q = $sql->fetch_assoc()){
                 echo '
+                <div id="inputFormRow">
                 <div class="mb-3 btn col-lg-2 float-left">
                 <select name="typ[]" required>
                     <option value="Pozytywne" '; if ($q['Typ']=="Pozytywne") {echo "selected";} echo'>Pozytywne</option>
@@ -63,13 +64,13 @@
                         <button id="removeRow" type="button" class="btn btn-danger">Usuń pytanie</button>
                     </div>
                 </div>
-                
+                </div>
                 ';
                 }
                 
             ?>
 
-                </div>
+                
                 <div id="newRow"></div>
                 <div class="text-center">
                     <label for="listed">Pokazać na liście testów?</label>
