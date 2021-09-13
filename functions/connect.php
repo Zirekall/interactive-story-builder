@@ -3,7 +3,7 @@
     define("DBURL", "localhost");
     define("DBUSERNAME", "root");
     define("DBPASSWORD", "");
-    define("DBNAME","inzynier");
+    define("DBNAME","mghxppxk_inzynier");
     
     $conn = new mysqli(DBURL, DBUSERNAME, DBPASSWORD, DBNAME);
     if ($conn->connect_error) {
