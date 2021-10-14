@@ -1,9 +1,9 @@
 <?php
 
     define("DBURL", "localhost");
-    define("DBUSERNAME", "root");
+    define("DBUSERNAME", "");
     define("DBPASSWORD", "");
-    define("DBNAME","mghxppxk_inzynier");
+    define("DBNAME","");
     
     $conn = new mysqli(DBURL, DBUSERNAME, DBPASSWORD, DBNAME);
     if ($conn->connect_error) {
